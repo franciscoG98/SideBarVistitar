@@ -22,9 +22,9 @@ function Menu({ navigation }) {
       }}
     >
       <Button
-        // color="black"
         // marginTop="10px"
-        title="side papa"
+        color="#7C88D5"
+        title="side"
         onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
       />
     </View>
@@ -37,7 +37,7 @@ function HomeScreen({ navigation }) {
       {/* <Text>Home?</Text> */}
       {Menu({ navigation })}
       <Home />
-      <MenuBar />
+      // <MenuBar />
     </View>
   );
 }
@@ -59,7 +59,7 @@ function CongresosScreen({ navigation }) {
       <Text>Congresos</Text>
       {Menu({ navigation })}
       <Congresos />
-      <MenuBar />
+      // <MenuBar />
     </View>
   );
 }
@@ -70,7 +70,7 @@ function LinksScreen({ navigation }) {
       {Menu({ navigation })}
       <Text>Links de inteŕes</Text>
       <Links />
-      <MenuBar />
+      // <MenuBar />
     </View>
   );
 }
@@ -92,8 +92,8 @@ function DrawerNavigator() {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={HomeScreen} />
-      <Drawer.Screen name="Calendario" component={CalendarioScreen} />
       <Drawer.Screen name="Congresos" component={CongresosScreen} />
+      <Drawer.Screen name="Calendario" component={CalendarioScreen} />
       <Drawer.Screen name="Links de interes" component={LinksScreen} />
       <Drawer.Screen name="Perfil" component={ProfileScreen} />
     </Drawer.Navigator>

@@ -2,7 +2,6 @@ import React from "react";
 import { View, TouchableOpacity, StyleSheet, Image } from "react-native";
 import useUser from "../Users/useUser";
 import { useNavigation } from "@react-navigation/native";
-import SideBar from "../SideBar";
 
 export default function Header() {
   const { userDB } = useUser();
@@ -12,7 +11,6 @@ export default function Header() {
   let image = require("../images/bag.png");
   return (
     <View style={styles.header}>
-      <SideBar />
       <TouchableOpacity
         style={styles.user}
         onPress={() => navigation.navigate("AdminPanel")}
