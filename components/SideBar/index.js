@@ -10,7 +10,9 @@ import Congresos from "../Event/EventCard";
 // import CongresosDetail from "../Event/EventDetail/EventDetail";
 import UnderConstruction from "../UnderConstruction";
 import Links from "../LinkInteres/InterestLinks";
-import MenuBar from "../MenuBar/MenuBar";
+// import MenuBar from "../MenuBar/MenuBar";
+import AdminPanel from "../AdminPanel/AdminPanel";
+import Chat from "../Chat/ChatCard";
 
 function Menu({ navigation }) {
   return (
@@ -37,7 +39,7 @@ function HomeScreen({ navigation }) {
       {/* <Text>Home?</Text> */}
       {Menu({ navigation })}
       <Home />
-      // <MenuBar />
+      {/* <MenuBar /> */}
     </View>
   );
 }
@@ -48,7 +50,7 @@ function CalendarioScreen({ navigation }) {
       {Menu({ navigation })}
       <Text>Calendario</Text>
       <Cal />
-      <MenuBar />
+      {/* <MenuBar /> */}
     </View>
   );
 }
@@ -59,7 +61,7 @@ function CongresosScreen({ navigation }) {
       <Text>Congresos</Text>
       {Menu({ navigation })}
       <Congresos />
-      // <MenuBar />
+      {/* <MenuBar /> */}
     </View>
   );
 }
@@ -70,7 +72,7 @@ function LinksScreen({ navigation }) {
       {Menu({ navigation })}
       <Text>Links de inteŕes</Text>
       <Links />
-      // <MenuBar />
+      {/* <MenuBar /> */}
     </View>
   );
 }
@@ -81,7 +83,27 @@ function ProfileScreen({ navigation }) {
       {Menu({ navigation })}
       <Text>Mi perfil</Text>
       <UnderConstruction />
-      <MenuBar />
+      {/* <MenuBar /> */}
+    </View>
+  );
+}
+
+function AdminPanelScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      {Menu({ navigation })}
+      <Text>Panel de Administrador</Text>
+      <AdminPanel />
+    </View>
+  );
+}
+
+function ChatScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      {Menu({ navigation })}
+      <Text>Chats</Text>
+      <Chat />
     </View>
   );
 }
@@ -91,11 +113,18 @@ const Drawer = createDrawerNavigator();
 function DrawerNavigator() {
   return (
     <Drawer.Navigator>
+      {/* Hola "Nombre" */}
       <Drawer.Screen name="Home" component={HomeScreen} />
       <Drawer.Screen name="Congresos" component={CongresosScreen} />
       <Drawer.Screen name="Calendario" component={CalendarioScreen} />
       <Drawer.Screen name="Links de interes" component={LinksScreen} />
       <Drawer.Screen name="Perfil" component={ProfileScreen} />
+      <Drawer.Screen name="AdminPanel" component={AdminPanelScreen} />
+      <Drawer.Screen name="Chat" component={ChatScreen} />
+
+      {/*
+      User
+      Configuración(notificaciones push) */}
     </Drawer.Navigator>
   );
 }
