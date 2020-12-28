@@ -15,6 +15,8 @@ import AdminIcon from "../images/AdminIcon";
 import AdminPanel from "../AdminPanel/AdminPanel";
 import InterestLinks from ".././LinkInteres/InterestLinks";
 
+import SideBar from "../SideBar/index";
+
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
@@ -33,6 +35,10 @@ export default function MyTabs() {
         },
       }}
     >
+      <Tab.Screen
+        name="SideBar"
+        component={SideBar}
+      />
       <Tab.Screen
         name="Home"
         component={Home}

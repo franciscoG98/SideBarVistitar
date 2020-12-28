@@ -1,44 +1,46 @@
-import React, { useEffect } from "react";
-import { StyleSheet, StatusBar, View } from "react-native";
-import EventCard from "./components/Event/EventCard";
-import EventDetail from "./components/Event/EventDetail/EventDetail";
-import { AppRegistry, Button } from "react-native";
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import CreateEvent from "./components/Event/EventCrud/CreateEvent";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import React, { useEffect } from 'react';
+import { StyleSheet, StatusBar, View } from 'react-native';
+import EventCard from './components/Event/EventCard';
+import EventDetail from './components/Event/EventDetail/EventDetail';
+import { AppRegistry, Button } from 'react-native';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import CreateEvent from './components/Event/EventCrud/CreateEvent';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 // import UserList from "./components/Users/UsersList";
-import * as firebase from "firebase";
-import { UserProvider } from "./components/Users/userContext";
-import "firebase/auth";
-import useUser from "./components/Users/useUser";
-import MyTabs from "./components/MenuBar/TabBar";
+import * as firebase from 'firebase';
+import { UserProvider } from './components/Users/userContext';
+import 'firebase/auth';
+import useUser from './components/Users/useUser';
+import MyTabs from './components/MenuBar/TabBar';
 // import UnderConstruction from "./components/UnderConstruction";
-import HeaderTab from "./components/Header/HeaderTab";
-import Home from "./components/Home";
-import Calendario from "./components/Calendario";
-import Login from "./components/Users/Login";
-import ChatCard from "./components/Chat/ChatCard";
-import ChatDetail from "./components/Chat/ChatDetail";
-import UsersList from "./components/Chat/UsersList";
-import DeleteEditEvent from "./components/Event/EventCrud/DeleteEditEvent";
-import UserPromote from "./components/AdminPanel/UserPromote";
-import createLinks from "./components/LinkInteres/CrudLink";
-import InterestLinks from "./components/LinkInteres/InterestLinks";
-import AgregarTarea from "./components/Calendario/AgregarTarea";
-import FechaSeleccionada from "./components/Calendario/FechaSeleccionada";
-import EditEvent from "./components/Event/EventCrud/EditEvent";
+import HeaderTab from './components/Header/HeaderTab';
+import Home from './components/Home';
+import Calendario from './components/Calendario';
+import Login from './components/Users/Login';
+import ChatCard from './components/Chat/ChatCard';
+import ChatDetail from './components/Chat/ChatDetail';
+import UsersList from './components/Chat/UsersList';
+import DeleteEditEvent from './components/Event/EventCrud/DeleteEditEvent';
+import UserPromote from './components/AdminPanel/UserPromote';
+import createLinks from './components/LinkInteres/CrudLink';
+import InterestLinks from './components/LinkInteres/InterestLinks';
+import AgregarTarea from './components/Calendario/AgregarTarea';
+import FechaSeleccionada from './components/Calendario/FechaSeleccionada';
+import EditEvent from './components/Event/EventCrud/EditEvent';
+
+import SideBar from './components/SideBar/index';
 
 const Stack = createStackNavigator();
 
 var firebaseConfig = {
-  apiKey: "AIzaSyBRutCUmn2wHrUAMzbM-5ESVsGxO2UEwQE",
-  authDomain: "visitar-test.firebaseapp.com",
-  projectId: "visitar-test",
-  storageBucket: "visitar-test.appspot.com",
-  messagingSenderId: "960314269839",
-  appId: "1:960314269839:web:c9130a27fd6f5848ac50fa",
-  measurementId: "G-8Y4DCJFJ5Z",
+  apiKey: 'AIzaSyBRutCUmn2wHrUAMzbM-5ESVsGxO2UEwQE',
+  authDomain: 'visitar-test.firebaseapp.com',
+  projectId: 'visitar-test',
+  storageBucket: 'visitar-test.appspot.com',
+  messagingSenderId: '960314269839',
+  appId: '1:960314269839:web:c9130a27fd6f5848ac50fa',
+  measurementId: 'G-8Y4DCJFJ5Z',
 };
 
 if (!firebase.apps.length) {
@@ -50,7 +52,7 @@ if (!firebase.apps.length) {
 // Initialize Apollo Client
 const client = new ApolloClient({
   //web
-  uri: "https://visitar-ar.herokuapp.com/graphql",
+  uri: 'https://visitar-ar.herokuapp.com/graphql',
   //uri: "http://192.168.1.26:3002/graphql", //Leandro
   cache: new InMemoryCache(),
 });
@@ -59,7 +61,7 @@ const MyTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
-    background: "white",
+    background: 'white',
   },
 };
 
@@ -75,16 +77,12 @@ function App() {
   return (
     <View
       style={{
-        height: "100%",
+        height: '100%',
         marginTop: StatusBar.currentHeight,
-        width: "100%",
-        display: "flex",
-      }}
-    >
+        width: '100%',
+        display: 'flex',
+      }}>
       <ApolloProvider client={client}>
-        {user === null ? (
-          <Login />
-        ) : (
           <NavigationContainer theme={MyTheme}>
             <Button
               color="#7C88D5"
@@ -94,17 +92,16 @@ function App() {
             <Stack.Navigator
               initialRouteName="Tab"
               screenOptions={{
-                cardStyle: { backgroundColor: "#fff" },
-              }}
-            >
+                cardStyle: { backgroundColor: '#fff' },
+              }}>
               <Stack.Screen
-                name="CreateEvent"
-                component={CreateEvent}
+                name="SideBar"
+                component={SideBar}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
-                name="Home"
-                component={Home}
+                name="CreateEvent"
+                component={CreateEvent}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -185,7 +182,6 @@ function App() {
               />
             </Stack.Navigator>
           </NavigationContainer>
-        )}
       </ApolloProvider>
     </View>
   );
@@ -202,7 +198,7 @@ export default function () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#98e6fa",
+    backgroundColor: '#98e6fa',
     marginTop: 300,
     marginBottom: 100,
     marginLeft: 10,
@@ -210,13 +206,13 @@ const styles = StyleSheet.create({
     height: 10,
     /*width: 400,*/
     borderRadius: 500,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
-    color: "red",
+    color: 'red',
     fontSize: 30,
   },
 });
 
-AppRegistry.registerComponent("MyApplication", () => App);
+AppRegistry.registerComponent('MyApplication', () => App);

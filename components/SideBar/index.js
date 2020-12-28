@@ -21,6 +21,8 @@ function Menu({ navigation }) {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
+        backgroundColor: '#7C88D5',
+        position: 'absolute'
       }}
     >
       <Button
