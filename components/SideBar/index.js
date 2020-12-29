@@ -136,7 +136,7 @@ export default DrawerNavigator;
 // export default function App() {
 //   return (
 //     <NavigationContainer>
-//       <MyDrawer />
+//       <DrawerNavigator />
 //     </NavigationContainer>
 //   );
 // }
