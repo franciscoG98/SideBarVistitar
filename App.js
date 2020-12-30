@@ -85,7 +85,7 @@ function App() {
       }}>
       <ApolloProvider client={client}>
         
-                <NavigationContainer theme={MyTheme}>
+        <NavigationContainer theme={MyTheme}>
           <Button
             color="#7C88D5"
             onPress={() => firebase.auth().signOut()}
@@ -97,9 +97,6 @@ function App() {
               cardStyle: { backgroundColor: '#fff' },
             }}
           >
-
-            
-
             <Stack.Screen
               name="CreateEvent"
               component={CreateEvent}
